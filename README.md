@@ -1,5 +1,5 @@
 
-![ovenredemptiontitle](https://github.com/user-attachments/assets/7d65c04e-e6ce-4394-b4cd-4e32f8be87d0)
+![ovenredemptiontitle](https://github.com/user-attachments/assets/e3200eba-73ae-4c11-9ff5-4f9548b58c93)
 > ovenredemption is a program for Pizza Tower mods with a sharp focus on retro-compatibilty and extreme simplicity.
 
 ### Notes:
