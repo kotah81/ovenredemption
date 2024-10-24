@@ -35,4 +35,10 @@ Can I undo the stealing?
 Is the author of this project Sertif?
 > No, unfortunately.
 
-## [BETA available!](https://github.com/kotah81/ovenredemption/releases/tag/beta)
+# Credits
+> Joshua MacDonald - Made the xdelta patching method
+
+> UndertaleModToolCE - I copied their Github Workflows code 💀
+
+> PizzaOven - Inspired the making of ovenredemption
+# [BETA available!](https://github.com/kotah81/ovenredemption/releases/tag/beta)
