@@ -35,5 +35,4 @@ Can I undo the stealing?
 Is the author of this project Sertif?
 > No, unfortunately.
 
-## Releasing a beta within the next few days!
-![appgif](https://github.com/user-attachments/assets/6eadacb7-c68f-41f8-a9b6-0584877e7886)
+## [BETA available!](https://github.com/kotah81/ovenredemption/releases/tag/beta)
