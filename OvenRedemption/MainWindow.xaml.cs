@@ -53,6 +53,7 @@ namespace OvenRedemption
         {
             ClearButton.IsEnabled = true;
             ClearButton.Visibility = Visibility.Visible;
+            Launcher.CanLaunch = true;
             OnDropSuceeded(true);
             DropDescription.Text = "got prev. install!";
             Launcher.ChangeState(States.Patching);
@@ -117,6 +118,7 @@ namespace OvenRedemption
         public void TriggerClearEverything()
         {
             Launcher.ChangeState(States.Idle);
+            Launcher.CanLaunch = false;
             ClearButton.IsEnabled = false;
             ClearButton.Visibility = Visibility.Hidden;
             Launcher.PreviousInstall = false;
@@ -128,7 +130,7 @@ namespace OvenRedemption
         #region Object Events
         private void SetupBorder_Click(object sender, RoutedEventArgs e)
         {
-            if ((float)Launcher.State > 25) return;
+            if ((float)Launcher.State > (Launcher.PreviousInstall ? 90 : 25)) return;
             OpenFileDialog OFD = new();
             OFD.Filter = "Redemption ZIP (*.zip)|*.zip";
 
@@ -142,7 +144,7 @@ namespace OvenRedemption
 
         private void OnZIPDropped(object sender, DragEventArgs e)
         {
-            if ((float)Launcher.State > 25) return;
+            if ((float)Launcher.State > (Launcher.PreviousInstall ? 90 : 25)) return;
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -153,7 +155,7 @@ namespace OvenRedemption
         private void LaunchButton_Click(object sender, RoutedEventArgs e)
         {
             if (!Launcher.CanLaunch) return;
-            if ((float)Launcher.State > 50) return; 
+            if ((float)Launcher.State > (Launcher.PreviousInstall ? 90 : 25)) return;
 
             if (Launcher.PreviousInstall)
             {
