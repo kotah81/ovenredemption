@@ -128,7 +128,7 @@ namespace OvenRedemption
         #region Object Events
         private void SetupBorder_Click(object sender, RoutedEventArgs e)
         {
-            if ((float)Launcher.State > 50) return;
+            if ((float)Launcher.State > 25) return;
             OpenFileDialog OFD = new();
             OFD.Filter = "Redemption ZIP (*.zip)|*.zip";
 
@@ -142,7 +142,7 @@ namespace OvenRedemption
 
         private void OnZIPDropped(object sender, DragEventArgs e)
         {
-            if ((float)Launcher.State > 50) return;
+            if ((float)Launcher.State > 25) return;
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
