@@ -143,7 +143,7 @@ namespace OvenRedemption
             Window.Log("Downloading manifest...");
             var CMDProcess = new Process();
             CMDProcess.StartInfo.FileName = "DepotDownloader.exe";
-            CMDProcess.StartInfo.CreateNoWindow = true;
+            // CMDProcess.StartInfo.CreateNoWindow = true;
             CMDProcess.StartInfo.Arguments = $"-app 2231450 -depot 2231451 -username {Username} -password {Password} -manifest {Manifest} -dir {GamePath}";
             CMDProcess.Start();
             await CMDProcess.WaitForExitAsync();
