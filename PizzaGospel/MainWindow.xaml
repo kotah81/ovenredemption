@@ -1,0 +1,82 @@
+﻿<Window x:Class="PizzaGospel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PizzaGospel"
+        mc:Ignorable="d"
+        Icon="/logo.png"
+        Title="PizzaGospel" Height="501" Width="1015.7" ResizeMode="CanMinimize" WindowStyle="ThreeDBorderWindow" Background="#FF1B1C1F" Foreground="White">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ScaleTransform x:Key="windowScaleTransform" ScaleX="1.5" ScaleY="1.5" />
+            <ScaleTransform x:Key="progressScaleTransform" ScaleX="1.1" ScaleY="1.1" />
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+
+    <Grid Background="#FF202124"
+          LayoutTransform="{StaticResource windowScaleTransform}" Height="485" VerticalAlignment="Top" Width="677.5"
+          >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="ProgramTitle" HorizontalAlignment="Left" Height="54" Margin="14,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" FontSize="38" FontFamily="{StaticResource SpaceMono}" Foreground="#FFFBBC19" FontWeight="Bold"><Run Language="fr-fr" Text="pizzagospel"/></TextBlock>
+        <Grid x:Name="SetupGrid" HorizontalAlignment="Left" Height="166" Margin="14,76,0,0" VerticalAlignment="Top" Width="372">
+            <Border x:Name="SetupBorder" BorderBrush="#FFEB4635" BorderThickness="5,5,5,5" HorizontalAlignment="Left" Height="110" Margin="0,47,0,0" VerticalAlignment="Top" Width="110" CornerRadius="30,30,30,30" Background="#FF1B1C1F">
+                <TextBlock x:Name="DropText" HorizontalAlignment="Center" Height="35" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" FontSize="24" FontFamily="{StaticResource SpaceMono}" Foreground="#FFEB4635" FontWeight="Bold"><Run Language="fr-fr" Text="drop"/></TextBlock>
+            </Border>
+            <TextBlock x:Name="DropDescription" HorizontalAlignment="Left" Height="50" Margin="125,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" FontFamily="{StaticResource SpaceMono}" Foreground="#FF656565" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.105"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.22"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run Text="drop a redemptio"/><Run Text="n "/><Run Text="zip"/><LineBreak/><Run Text="&lt;-"/><Run Language="fr-fr" Text=" here"/></TextBlock>
+            <TextBlock x:Name="SetupTitle" HorizontalAlignment="Left" Height="40" Margin="14,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontSize="26" FontFamily="{StaticResource SpaceMono}" Foreground="#FFEB4635" FontWeight="Bold"><Run Language="fr-fr" Text="setup"/></TextBlock>
+            <Button x:Name="SetupClickButton" Drop="OnZIPDropped" HorizontalAlignment="Left" Height="110" Margin="0,47,0,0" VerticalAlignment="Top" Width="110" Click="SetupBorder_Click" BorderThickness="0,0,0,0.4" Opacity="0"/>
+        </Grid>
+        <Grid x:Name="LaunchGrid" LayoutTransform="{StaticResource progressScaleTransform}" HorizontalAlignment="Left" Height="57" Margin="10,249,0,0" VerticalAlignment="Top" Width="344">
+            <Button x:Name="ClearButton" Content="🗑️" HorizontalAlignment="Left" Height="22" Margin="7,-2,0,0" VerticalAlignment="Top" Width="22" Click="ClearButton_Click" BorderThickness="3,3,3,3" BorderBrush="#FF1F4EA5" Background="#FF2773E7" Foreground="#FF1F4EA5" FontWeight="Bold" FontSize="9">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+
+                <Button.FontFamily>
+                    <StaticResource ResourceKey="SpaceMono"/>
+                </Button.FontFamily>
+
+            </Button>
+            <Button x:Name="LaunchButton" Content="launch" HorizontalAlignment="Left" Height="33" Margin="7,24,0,0" VerticalAlignment="Top" Width="84" Click="LaunchButton_Click" BorderThickness="4,4,4,4" BorderBrush="#FF02652F" Background="#FF03B152" Foreground="#FF02652F" FontWeight="Bold">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+
+                <Button.FontFamily>
+                    <StaticResource ResourceKey="SpaceMono"/>
+                </Button.FontFamily>
+
+            </Button>
+            <TextBlock x:Name="ProgressTitle" HorizontalAlignment="Left" Height="24" Margin="174,0,0,33" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="82" FontSize="16" FontFamily="{StaticResource SpaceMono}" Foreground="#FF656565" FontWeight="Bold"><Run Language="fr-fr" Text="progress"/></TextBlock>
+            <Border x:Name="ProgressBarBorder" BorderBrush="#FF292929" BorderThickness="5,5,5,5" HorizontalAlignment="Left" Height="33" Margin="96,24,0,0" VerticalAlignment="Top" Width="238" Background="#FF1B1C1F">
+                <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="33" VerticalAlignment="Center" Width="238" Background="#FF1B1C1F" BorderBrush="#FF656565" BorderThickness="5,5,5,5" Foreground="#FFFBBC1C"/>
+            </Border>
+        </Grid>
+        <Grid x:Name="LogsGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="292" Margin="391,20,0,0" VerticalAlignment="Top" Width="271">
+            <Border x:Name="LogsBorder" BorderBrush="#FF292929" BorderThickness="5,5,5,5" HorizontalAlignment="Right" Height="292" VerticalAlignment="Top" Width="270" CornerRadius="30,30,30,30" Background="#FF1B1C1F" Margin="0,0,0.3,0">
+                <TextBlock x:Name="LogText" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontSize="24" FontFamily="{StaticResource SpaceMono}" Foreground="#FF757575" FontWeight="Bold" Margin="15,13,0,0"><Run Language="fr-fr" Text="progress"/><LineBreak/><Run/></TextBlock>
+            </Border>
+            <TextBlock x:Name="Logs" HorizontalAlignment="Left" Height="211" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" FontSize="14" FontFamily="{StaticResource SpaceMono}" Foreground="#FFB9B9B9" FontWeight="Bold" Margin="22,56,0,0" RenderTransformOrigin="0,0"><Run Language="fr-fr" Text="Patched PLACEHOLDER!"/><LineBreak/><Run Language="fr-fr" Text="Patched PLACEHOLDER!"/><LineBreak/><Run Language="fr-fr" Text="Patched PLACEHOLDER!"/><LineBreak/><Run Language="fr-fr" Text="Patched PLACEHOLDER!"/><LineBreak/><Run Language="fr-fr" Text="Patched PLACEHOLDER!"/><LineBreak/><Run Language="fr-fr" Text="Launching Game!"/><LineBreak/><Run/></TextBlock>
+        </Grid>
+
+    </Grid>
+</Window>
